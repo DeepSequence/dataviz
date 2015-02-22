@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+
   resources :graphs
 
   resources :datasets
@@ -13,6 +15,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#index'
 
+ get 'short_list' => 'graphs#short_list'
+ get 'show_simple/:id' => 'graphs#show_simple'
+ 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

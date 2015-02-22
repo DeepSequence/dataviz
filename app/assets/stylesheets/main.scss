@@ -18,5 +18,20 @@
 }
 
 .x.axis path {
-  display: none;
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.graph-link{
+  cursor: pointer;
+}
+.graph-link:hover{
+  background-color: gray;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
 }

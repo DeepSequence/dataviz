@@ -1,5 +1,5 @@
 class GraphsController < ApplicationController
-  before_action :set_graph, only: [:show, :edit, :update, :destroy]
+  before_action :set_graph, only: [:show, :edit, :update, :destroy, :show_simple]
 
   # GET /graphs
   # GET /graphs.json
@@ -7,9 +7,18 @@ class GraphsController < ApplicationController
     @graphs = Graph.all
   end
 
+  def short_list
+    @graphs = Graph.all
+    render :short_list, :layout => false
+  end
+
   # GET /graphs/1
   # GET /graphs/1.json
   def show
+  end
+
+  def show_simple
+    render :show, :layout => false
   end
 
   # GET /graphs/new

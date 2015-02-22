@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :dataset_id %><br>
-    <%= f.text_field :dataset_id %>
+    <%= f.collection_select(:dataset_id, Dataset.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :graph_type_id %><br>
-    <%= f.text_field :graph_type_id %>
+    <%= f.collection_select(:graph_type_id, GraphType.all, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :x_axis_label %><br>

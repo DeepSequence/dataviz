@@ -5,88 +5,13 @@
   <%= @graph.name %>
 </p>
 
-<script>
-//margin on the container svg
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+<div id= "graph"></div>
 
-//binding a number to the rectangles
-//scales everthing so that it fits into our svg size
-//ordinal decides what width to give the bars.
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-var y = d3.scale.linear()
-    .range([height, 0]);
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .ticks(10);
-
-//add the core svg element and git it width and height
-//'transform'= 'translate' take every coordinate, add the margin left and right 
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-//loads up tsv(tab separated values)(from excel--hard coded)
-d3.tsv("/<%=@graph.dataset.file_name%>", type, function(error, data) {
-  x.domain(data.map(function(d) { return d.category; }));
-  y.domain([0, d3.max(data, function(d) { return d.number; })]);
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom")
-    .tickValues(x.domain().filter(function(d, i, a) { 
-                       if (a.length > 20) {
-                          return !(i % 2); 
-                       } else {
-                          return true;
-                       }}
-                       ));
-//draws the x axis, g is same as div
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
-      .append("text")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("<%=@graph.x_axis_label%>");
-
-//draws the y axis
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("<%=@graph.y_axis_label%>");
-//puts the data in the svg from the numberdata.txt
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return x(d.category); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.number); })
-      .attr("height", function(d) { return height - y(d.number); });
-
-});
-//this loads the whole thing in.
-function type(d) {
-  d.number = +d.number;
-  return d;
-}
-
-</script>
+<% if @graph.graph_type.name == "Vertical bar"%>
+  <%= render partial: "bar"%>
+  <%elsif @graph.graph_type.name == "line"%>
+  <%= render partial: "line"%>
+  <%end%>
 
 <%= link_to 'Edit', edit_graph_path(@graph) %> |
 <%= link_to 'Back', graphs_path %>

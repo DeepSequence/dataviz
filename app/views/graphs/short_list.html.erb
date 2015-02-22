@@ -1,0 +1,25 @@
+<h1>Listing Graphs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @graphs.each do |graph| %>
+      <tr>
+        <td id ="<%=graph.id%>"class="graph-link"><%= graph.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<script>
+  $(".graph-link").on("click", function(event){
+      $("#main-graph").load("/show_simple/" + event.target.id);
+  });
+
+</script>
