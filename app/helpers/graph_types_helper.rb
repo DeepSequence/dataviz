@@ -1,0 +1,2 @@
+module GraphTypesHelper
+end

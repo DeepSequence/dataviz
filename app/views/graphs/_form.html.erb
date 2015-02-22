@@ -1,0 +1,38 @@
+<%= form_for(@graph) do |f| %>
+  <% if @graph.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@graph.errors.count, "error") %> prohibited this graph from being saved:</h2>
+
+      <ul>
+      <% @graph.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :dataset_id %><br>
+    <%= f.text_field :dataset_id %>
+  </div>
+  <div class="field">
+    <%= f.label :graph_type_id %><br>
+    <%= f.text_field :graph_type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :x_axis_label %><br>
+    <%= f.text_field :x_axis_label %>
+  </div>
+  <div class="field">
+    <%= f.label :y_axis_label%><br>
+    <%= f.text_field :y_axis_label %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
