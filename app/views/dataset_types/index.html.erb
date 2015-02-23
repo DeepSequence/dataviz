@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Dataset Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Num cols</th>
+      <th>Format</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dataset_types.each do |dataset_type| %>
+      <tr>
+        <td><%= dataset_type.name %></td>
+        <td><%= dataset_type.num_cols %></td>
+        <td><%= dataset_type.format %></td>
+        <td><%= link_to 'Show', dataset_type %></td>
+        <td><%= link_to 'Edit', edit_dataset_type_path(dataset_type) %></td>
+        <td><%= link_to 'Destroy', dataset_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dataset type', new_dataset_type_path %>

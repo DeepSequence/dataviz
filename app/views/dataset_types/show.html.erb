@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dataset_type.name %>
+</p>
+
+<p>
+  <strong>Num cols:</strong>
+  <%= @dataset_type.num_cols %>
+</p>
+
+<p>
+  <strong>Format:</strong>
+  <%= @dataset_type.format %>
+</p>
+
+<%= link_to 'Edit', edit_dataset_type_path(@dataset_type) %> |
+<%= link_to 'Back', dataset_types_path %>

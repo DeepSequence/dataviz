@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
 
+  resources :dataset_types
+
   resources :graphs
 
   resources :datasets
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   resources :graph_types
 
   get 'main/index'
+  get 'main/admin'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -11,16 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150222014221) do
+ActiveRecord::Schema.define(version: 20150223015252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "dataset_types", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "num_cols"
+    t.string   "format"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "datasets", force: :cascade do |t|
     t.string   "name"
     t.string   "file_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "dataset_type_id"
   end
 
   create_table "graph_types", force: :cascade do |t|
