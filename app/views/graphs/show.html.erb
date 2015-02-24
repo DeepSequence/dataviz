@@ -15,6 +15,8 @@
   <%= render partial: "pie"%>
    <%elsif @graph.graph_type.name == "Multiline"%>
   <%= render partial: "multiline"%>
+  <%elsif @graph.graph_type.name == "stacked bar"%>
+  <%= render partial: "stackedBar"%>
   <%end%>
 
 
