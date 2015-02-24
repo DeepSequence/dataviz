@@ -13,6 +13,8 @@
   <%= render partial: "line"%>
   <%elsif @graph.graph_type.name == "Pie"%>
   <%= render partial: "pie"%>
+   <%elsif @graph.graph_type.name == "Multiline"%>
+  <%= render partial: "multiline"%>
   <%end%>
 
 
