@@ -1,0 +1,11 @@
+CrimeByYear.csv
+
+National or state offense totals are based on data from all reporting agencies and estimates for unreported areas.
+
+"           Rates are the number of reported offenses per 100,000 population" "         United States-Total - <ul><li>The 168 murder and nonnegligent homicides that occurred as a result of the bombing of the Alfred P. Murrah Federal Building in Oklahoma City in 1995 are included in the national estimate.</li>
+<li>The 2,823 murder and nonnegligent homicides that occurred as a result of the events of September 11, 2001, are not included in the national estimates.</li></ul>"
+
+"       The murder and nonnegligent homicides that occurred as a result of the events of September 11, 2001, are not included."
+
+"Sources: FBI, Uniform Crime Reports, prepared by the National Archive of Criminal Justice Data" 
+Date of download: Feb 21 2015 

@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-
-body {
-  font: 10px sans-serif;
-}
-
-.arc path {
-  stroke: #fff;
-}
-
-</style>
-<body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
-
 var width = 960,
     height = 500,
     radius = Math.min(width, height) / 2;
@@ -28,7 +12,7 @@ var arc = d3.svg.arc()
 
 var pie = d3.layout.pie()
     .sort(null)
-    .value(function(d) { return d.population; });
+    .value(function(d) { return d.number; });
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -36,10 +20,10 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-d3.csv("data.csv", function(error, data) {
+d3.tsv("/<%=@graph.dataset.file_name%>", function(error, data) {
 
   data.forEach(function(d) {
-    d.population = +d.population;
+    d.number = +d.number;
   });
 
   var g = svg.selectAll(".arc")
@@ -49,13 +33,13 @@ d3.csv("data.csv", function(error, data) {
 
   g.append("path")
       .attr("d", arc)
-      .style("fill", function(d) { return color(d.data.age); });
+      .style("fill", function(d) { return color(d.data.category); });
 
   g.append("text")
       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
       .attr("dy", ".35em")
       .style("text-anchor", "middle")
-      .text(function(d) { return d.data.age; });
+      .text(function(d) { return d.data.category; });
 
 });
 

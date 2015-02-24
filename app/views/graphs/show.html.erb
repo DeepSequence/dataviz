@@ -11,7 +11,10 @@
   <%= render partial: "bar"%>
   <%elsif @graph.graph_type.name == "line"%>
   <%= render partial: "line"%>
+  <%elsif @graph.graph_type.name == "Pie"%>
+  <%= render partial: "pie"%>
   <%end%>
+
 
 <%= link_to 'Edit', edit_graph_path(@graph) %> |
 <%= link_to 'Back', graphs_path %>
