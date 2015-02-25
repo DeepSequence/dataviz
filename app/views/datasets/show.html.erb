@@ -10,5 +10,9 @@
   <%= @dataset.file_name %>
 </p>
 
+<p>
+  <strong>DataSet File URL</strong>
+  <%= @dataset.data_file.url %>
+</p>
 <%= link_to 'Edit', edit_dataset_path(@dataset) %> |
 <%= link_to 'Back', datasets_path %>

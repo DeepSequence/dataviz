@@ -33,7 +33,7 @@ var svg = d3.select("#graph").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("/<%=@graph.dataset.file_name%>", function(error, data) {
+d3.tsv("<%=@graph.dataset.data_file.url%>", function(error, data) {
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "x"; }));
 
 

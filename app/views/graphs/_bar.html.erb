@@ -27,7 +27,7 @@ var svg = d3.select("#graph").append("svg")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 //loads up tsv(tab separated values)(from excel--hard coded)
-d3.tsv("/<%=@graph.dataset.file_name%>", type, function(error, data) {
+d3.tsv("<%=@graph.dataset.data_file.url%>", type, function(error, data) {
   x.domain(data.map(function(d) { return d.category; }));
   y.domain([0, d3.max(data, function(d) { return d.number; })]);
 
