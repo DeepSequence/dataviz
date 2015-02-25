@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223015252) do
+ActiveRecord::Schema.define(version: 20150224161920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 20150223015252) do
 
   add_index "graphs", ["dataset_id"], name: "index_graphs_on_dataset_id", using: :btree
   add_index "graphs", ["graph_type_id"], name: "index_graphs_on_graph_type_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "token"
+    t.string   "secret"
+  end
 
   add_foreign_key "graphs", "datasets"
   add_foreign_key "graphs", "graph_types"

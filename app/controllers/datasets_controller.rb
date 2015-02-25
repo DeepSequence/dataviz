@@ -7,6 +7,10 @@ class DatasetsController < ApplicationController
     @datasets = Dataset.all
   end
 
+  def browse
+    @datasets = Dataset.all
+  end
+
   # GET /datasets/1
   # GET /datasets/1.json
   def show

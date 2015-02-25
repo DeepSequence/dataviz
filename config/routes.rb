@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+   get '/auth/:provider/callback', to: 'sessions#create'
 
   resources :dataset_types
 
@@ -11,6 +11,11 @@ Rails.application.routes.draw do
 
   get 'main/index'
   get 'main/admin'
+  get 'about' => 'main#about'
+  get 'datasets_browse' => 'datasets#browse'
+
+  get 'sign_in' =>'sessions#new'
+  delete 'sign_out' => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -18,8 +23,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#index'
 
+
  get 'short_list' => 'graphs#short_list'
  get 'show_simple/:id' => 'graphs#show_simple'
+
+
+
  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
