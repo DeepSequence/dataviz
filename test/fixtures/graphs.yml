@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  dataset_id: 
-  graph_type_id: 
+  dataset_id: 1
+  graph_type_id: 1
 
 two:
   name: MyString
-  dataset_id: 
-  graph_type_id: 
+  dataset_id: 1
+  graph_type_id: 1

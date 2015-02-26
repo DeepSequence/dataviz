@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h2>
+  <!--<strong>Name:</strong>-->
   <%= @graph.name %>
-</p>
+</h2>
 
 <div id= "graph"></div>
 
@@ -22,3 +22,8 @@
 
 <%= link_to 'Edit', edit_graph_path(@graph) %> |
 <%= link_to 'Back', graphs_path %>
+<div id="twitter-share-section"></div>
+<script>
+$("#twitter-share-section").html('<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= graph_url @graph %>" data-text="Check out this Designer Data graph">Tweet</a>');
+twttr.widgets.load(); 
+</script>

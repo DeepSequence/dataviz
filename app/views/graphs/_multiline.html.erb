@@ -1,6 +1,6 @@
 
 <script>
-var margin = {top: 20, right: 180, bottom: 50, left: 50},
+var margin = {top: 20, right: 180, bottom: 50, left: 80},
     width = 1000- margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -32,7 +32,7 @@ var svg = d3.select("#graph").append("svg")
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+//bring in data from our public folder by data file data=id1)
 d3.tsv("<%=@graph.dataset.data_file.url%>", function(error, data) {
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "x"; }));
 

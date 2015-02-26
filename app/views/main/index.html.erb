@@ -1,34 +1,53 @@
 
-<h1><%= link_to 'Create a new visualization with existing dataset', new_graph_path %></h1>
-
-
 <div id = "main-graph">
 </div>
-<h2>Existing Graphs</h2>
+<h1>Existing Graphs</h1>
 <div class="container">
-<div class="row">
-<div id="vert-bar" class="col-md-4 graph-menu"><%= image_tag "bar.png", class: "graph-menu"%></div>
-<div class="col-md-4 graph-menu"><%= image_tag "multi_line.png", class: "graph-menu"%></div>
-<div class="col-md-4 graph-menu"><%= image_tag "pie.png", class: "graph-menu"%></div>
+  <div class="row">
+      <div id="vert-bar" class="col-md-2 graph-menu"><%= image_tag "bar.png", class: "graph-menu"%></div>
+
+      <div id="multi" class="col-md-2 graph-menu"><%= image_tag "multi_line.png", class: "graph-menu"%></div>
+
+      <div id="pie-graph" class="col-md-2 graph-menu"><%= image_tag "pie.png", class: "graph-menu"%></div>
+  <!--</div>-->
+  <!--<div class="row">-->
+      <div id="stacked-graph" class="col-md-2 graph-menu"><%= image_tag "stacked_bar.png", class: "graph-menu"%></div>
+
+      <div id="line-graph" class="col-md-2 graph-menu"><%= image_tag "linenew.png", class: "graph-menu"%></div>
+
+      <div id="dots" class="col-md-2 graph-menu"><%= image_tag "scatter_plot.png", class: "graph-menu"%></div>
+  </div>
 </div>
-<div class="row">
-<div class="col-md-4 graph-menu"><%= image_tag "stacked_bar.png", class: "graph-menu"%></div>
-<div class="col-md-4 graph-menu"><%= image_tag "linenew.png", class: "graph-menu"%></div>
-<div class="col-md-4 graph-menu"><%= image_tag "scatter_plot.png", class: "graph-menu"%></div>
+
+<div id= "create-new">
+<%= link_to 'Create a new visualization with existing dataset', new_graph_path %>
 </div>
-</div>
+
 <div id = "graph-list">
-</div>
-
-
 <script>
   $("#main-graph").load("/show_simple/1");
   $("#vert-bar").on("click", function () {
     $("#graph-list").load("short_list?type=Vertical+bar");  
+  });
+
+    $("#multi").on("click", function () {
+    $("#graph-list").load("short_list?type=Multiline");  
+  });
+    $("#pie-graph").on("click", function () {
+    $("#graph-list").load("short_list?type=Pie");  
+  });
+
+    $("#stacked-graph").on("click", function () {
+    $("#graph-list").load("short_list?type=stacked+bar");  
+  });
+
+    $("#line-graph").on("click", function () {
+    $("#graph-list").load("short_list?type=line");  
+  });
+
+    $("#dots").on("click", function () {
+    $("#graph-list").load("short_list?type=scatter+plot");  
   })
-  //repeat the above for all graph types
-  
-
-
 </script>
+
 

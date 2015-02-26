@@ -6,15 +6,17 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>File name</th>
+      <th>Description</th>
+      <th>Created By</th>
     </tr>
   </thead>
 
   <tbody>
     <% @datasets.each do |dataset| %>
       <tr>
-        <td><%= dataset.name %></td>
-        <td><%= dataset.file_name %></td>
+        <td><%= link_to dataset.name, dataset %></td>
+        <td><%= dataset.description %></td>
+        <td><%= dataset.user.name %></td>
         <td><%= button_to "create graph", 
               {controller: "graphs", action: "new"}, 
               method: "get",

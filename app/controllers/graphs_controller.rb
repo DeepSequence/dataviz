@@ -1,4 +1,5 @@
 class GraphsController < ApplicationController
+  before_action :authorize_admin, only: [:index]
   before_action :set_graph, only: [:show, :edit, :update, :destroy, :show_simple]
 
   # GET /graphs

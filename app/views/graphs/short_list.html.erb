@@ -22,6 +22,8 @@
 <script>
   $(".graph-link").on("click", function(event){
       $("#main-graph").load("/show_simple/" + event.target.id);
+      history.pushState({}, '', "/graphs/" + event.target.id)
   });
+
 
 </script>

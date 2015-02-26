@@ -1,4 +1,5 @@
 class GraphTypesController < ApplicationController
+  before_action :authorize_admin
   before_action :set_graph_type, only: [:show, :edit, :update, :destroy]
 
   # GET /graph_types

@@ -14,5 +14,15 @@
   <strong>DataSet File URL</strong>
   <%= @dataset.data_file.url %>
 </p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @dataset.description %>
+</p>
+
+<p>
+  <strong>Created by</strong>
+  <%= @dataset.user.name %>
+</p>
 <%= link_to 'Edit', edit_dataset_path(@dataset) %> |
 <%= link_to 'Back', datasets_path %>

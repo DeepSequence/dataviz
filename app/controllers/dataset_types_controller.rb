@@ -1,6 +1,7 @@
 class DatasetTypesController < ApplicationController
+  before_action :authorize_admin
   before_action :set_dataset_type, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /dataset_types
   # GET /dataset_types.json
   def index

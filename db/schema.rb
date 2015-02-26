@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150226015859) do
+ActiveRecord::Schema.define(version: 20150226230547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20150226015859) do
     t.string   "data_file_content_type"
     t.integer  "data_file_file_size"
     t.datetime "data_file_updated_at"
+    t.string   "description"
+    t.integer  "user_id"
   end
 
   create_table "graph_types", force: :cascade do |t|
