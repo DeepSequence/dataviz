@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :graphs
 
   def self.find_or_create_with_omniauth(auth_hash)
      user = where(provider: auth_hash.provider, uid: auth_hash.uid).first_or_create

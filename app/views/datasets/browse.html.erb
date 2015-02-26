@@ -15,6 +15,11 @@
       <tr>
         <td><%= dataset.name %></td>
         <td><%= dataset.file_name %></td>
+        <td><%= button_to "create graph", 
+              {controller: "graphs", action: "new"}, 
+              method: "get",
+              params: {dataset_id: dataset.id},   
+              class: "btn btn-default"%>
       </tr>
     <% end %>
   </tbody>

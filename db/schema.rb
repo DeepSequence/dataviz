@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225010242) do
+ActiveRecord::Schema.define(version: 20150226015859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150225010242) do
     t.datetime "updated_at",    null: false
     t.string   "x_axis_label"
     t.string   "y_axis_label"
+    t.integer  "user_id"
   end
 
   add_index "graphs", ["dataset_id"], name: "index_graphs_on_dataset_id", using: :btree

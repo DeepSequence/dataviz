@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
 
  get 'short_list' => 'graphs#short_list'
+ get 'short_list/:type' => 'graphs#short_list'
  get 'show_simple/:id' => 'graphs#show_simple'
 
 

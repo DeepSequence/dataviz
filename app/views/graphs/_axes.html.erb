@@ -1,0 +1,25 @@
+//draws the x axis, g is same as div
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+      .append("text")
+      .attr("class", "axis-title")
+      .attr("y", 25)
+      .attr("dy", ".71em")
+      .attr("x", width/2)
+      .style("text-anchor", "middle")
+      .text("<%=@graph.x_axis_label%>");
+
+//draws the y axis
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("x", -height/2)
+      .attr("y", -60)
+      .attr("transform", "rotate(-90)")
+      .attr("class", "axis-title")
+      .attr("dy", ".71em")
+      .style("text-anchor", "middle")
+      .text("<%=@graph.y_axis_label%>");

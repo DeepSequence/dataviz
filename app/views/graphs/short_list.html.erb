@@ -1,9 +1,9 @@
-<h2>Existing Graphs</h2>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Type</th>
+      <th>Creator</th>
     </tr>
   </thead>
 
@@ -12,6 +12,7 @@
       <tr>
         <td id ="<%=graph.id%>"class="graph-link"><%= graph.name %></td>
         <td><%=graph.graph_type.name%></td>
+        <td><%=graph.user.name%></td>
       </tr>
     <% end %>
   </tbody>

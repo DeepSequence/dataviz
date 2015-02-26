@@ -55,20 +55,7 @@ var lines = color.domain().map(function(name) {
     d3.max(lines, function(c) { return d3.max(c.values, function(v) { return v.y; }); })
   ]);
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("<%=@graph.y_axis_label%>");
+ <%= render partial: "axes" %>
 
   var dataline = svg.selectAll(".line")
       .data(lines)

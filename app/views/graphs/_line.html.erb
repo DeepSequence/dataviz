@@ -1,6 +1,6 @@
 
 <script>
-var margin = {top: 20, right: 20, bottom: 30, left: 50},
+var margin = {top: 20, right: 20, bottom: 45, left: 60},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -43,20 +43,7 @@ d3.tsv("<%=@graph.dataset.data_file.url%>", function(error, data) {
   x.domain(d3.extent(data, function(d) { return d.category; }));
   y.domain([yMin - (0.2 * yMin), yMax + (0.1 * yMax)]);
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("<%=@graph.y_axis_label%>");
+<%= render partial: "axes" %>
 
   svg.append("path")
       .datum(data)

@@ -1,6 +1,6 @@
 <script>
 //margin on the container svg
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
+var margin = {top: 20, right: 20, bottom: 40, left: 60},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -41,27 +41,7 @@ var xAxis = d3.svg.axis()
                           return true;
                        }}
                        ));
-//draws the x axis, g is same as div
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
-      .append("text")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("<%=@graph.x_axis_label%>");
-
-//draws the y axis
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("<%=@graph.y_axis_label%>");
+<%= render partial: "axes" %>
 //puts the data in the svg from the numberdata.txt
   svg.selectAll(".bar")
       .data(data)
