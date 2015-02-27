@@ -1,28 +1,31 @@
-== README
+# Designer Data
+[URL:] (http://designerdata.space
+User: Sign in with Twitter
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Description
+Designer Data is a Ruby on Rails web application for creating custom visual graphics. Users can upload their own .tsv files into the app and choose various graph types to display that data. They can share the graph they create on Twitter.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Goals
+In future releases, we will be able to upload .csv, json and xml files to create the graphs and share them on multiple social media outlets like Facebook and G+. We will also have the ability to embed graphs into your website using a widget.  
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
+# ERD
+
+
+
+# Requirements
+## Designer Data is built with the following Open Source technologies:
+Ruby 2.1.2
+Rails 4.2.0
+PostgreSQL 9.3.5
+
+### special gems
+paperclip 4.2
+omniauth 1.0
+
+
+
+
+
