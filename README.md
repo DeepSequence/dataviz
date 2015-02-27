@@ -11,7 +11,7 @@ In future releases, we will be able to upload .csv, json and xml files to create
 
 
 # ERD
-
+![erd](https://github.com/minmcknight/dataviz/blob/master/public/ERD.png)
 
 
 # Requirements
