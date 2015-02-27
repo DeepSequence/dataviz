@@ -1,5 +1,5 @@
 # Designer Data
-[URL:] (http://designerdata.space
+[URL:] (http://designerdata.space)
 User: Sign in with Twitter
 
 # Description
@@ -7,8 +7,6 @@ Designer Data is a Ruby on Rails web application for creating custom visual grap
 
 # Goals
 In future releases, we will be able to upload .csv, json and xml files to create the graphs and share them on multiple social media outlets like Facebook and G+. We will also have the ability to embed graphs into your website using a widget.  
-
-
 
 
 # ERD
