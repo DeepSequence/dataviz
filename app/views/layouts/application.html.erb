@@ -11,9 +11,7 @@
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-
 <body>
-
 <nav class= "navbar navbar-default" role= "navigation">
   <div class= "container-fluid">
      <div class="navbar-header">
@@ -33,22 +31,20 @@
         </ul>
       <ul class ="nav navbar-nav navbar-right">
         <li class="twitterbird">
-          <%=image_tag("Twitter_logo_blue.png", size:"25x25") %> 
+            <%=image_tag("Twitter_logo_blue.png", size:"25x25") %> 
         </li>
         <% if current_user %>
          <li>
             <a href="#">Signed in as <%= current_user.name%></a>
          </li>
          <li>
-          <%= link_to "Sign Out", sign_out_path, method: :delete%>
+            <%= link_to "Sign Out", sign_out_path, method: :delete%>
          </li>
         <%else%>
         <li>
-          <%=link_to "Sign in with Twitter", "/auth/twitter" %>
-        </li>
-     
-        <%end%>
-        
+            <%=link_to "Sign in with Twitter", "/auth/twitter" %>
+        </li> 
+        <%end%>   
       </ul>
     </div>
   </div>
@@ -59,6 +55,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </div>
+<!-- twitter share button-->
 <script>
 window.twttr=(function(d,s,id){
   var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};
