@@ -1,5 +1,5 @@
 # Designer Data
-[URL:] (http://designerdata.space)
+[http://designerdata.space]
 User: Sign in with Twitter
 
 # Description
