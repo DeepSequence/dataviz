@@ -1,3 +1,6 @@
+<div class="row">
+<div class="col-md-5">
+<div clas="form">
 <%= form_for(@graph) do |f| %>
   <% if @graph.errors.any? %>
     <div id="error_explanation">
@@ -10,29 +13,28 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :dataset_id %><br>
-    <%= f.collection_select(:dataset_id, Dataset.all, :id, :name) %>
+    <%= f.collection_select :dataset_id, Dataset.all, :id, :name, {include_blank: "Select Dataset..."},{ class: "form-control"} %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :graph_type_id %><br>
-    <%= f.collection_select(:graph_type_id, GraphType.all, :id, :name) %>
+    <%= f.collection_select :graph_type_id, GraphType.all, :id, :name, {include_blank: "Select Graph Type..."}, {class: "form-control"} %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :x_axis_label %><br>
-    <%= f.text_field :x_axis_label %>
+    <%= f.text_field :x_axis_label, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :y_axis_label%><br>
-    <%= f.text_field :y_axis_label %>
+    <%= f.text_field :y_axis_label, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-default" %>
   </div>
 <% end %>

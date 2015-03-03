@@ -20,6 +20,7 @@
 
 <br>
 <script>
+//load the partials. use histoy.pushState to assign an URL to the graph so we can use it as a shareable link. we do this without reloading the app
   $(".graph-link").on("click", function(event){
       $("#main-graph").load("/show_simple/" + event.target.id);
       history.pushState({}, '', "/graphs/" + event.target.id)

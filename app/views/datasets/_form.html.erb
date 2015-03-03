@@ -1,3 +1,7 @@
+<div class="row">
+<div class="col-md-5">
+<div class="form">
+<% dataset_types = DatasetType.all %>
 <%= form_for(@dataset) do |f| %>
   <% if @dataset.errors.any? %>
     <div id="error_explanation">
@@ -11,27 +15,49 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :file_name %><br>
-    <%= f.text_field :file_name %>
-  </div>
-  <div class="field">
-    <%= f.label :data_file %><br>
-    <%= f.file_field :data_file %>
-  </div>
-  <div class="field">
+    <div class="field form-group">
     <%= f.label :dataset_type %><br>
-    <%= f.collection_select :dataset_type_id, DatasetType.all, :id, :name%>
+    <%= f.collection_select :dataset_type_id, dataset_types, :id, :name,
+       {include_blank: "Select Dataset Type..."}, {class: "form-control"}%>
   </div>
-  <div class="field">
+  <div class="field form-group">
+    <%= f.label :data_file %><br>
+    <%= f.file_field :data_file, class: "form-control" %>
+  </div>
+  <div class="field form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, cols: 50, rows: 10, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-default" %>
   </div>
 <% end %>
+</div>
+</div>
+<div class="col-md-2"></div>
+<div class="col-md-5">
+  <% dataset_types.each do |dataset_type| %>
+  <div id="dataset-type-info-<%=dataset_type.id%>" class="dataset-type-info">
+  <h3>Dataset Type Info</h3>
+    <h4>Your dataset must match the following specifications:</h4>
+    <p><%= dataset_type.description %></p>
+    <h4>Example:</h4>
+    <%= image_tag dataset_type.image_file, width: 400 %> 
+  </div>
+  <% end %>
+</div>
+</div>
+<script>
+  $(".dataset-type-info").hide();
+  $("#dataset_dataset_type_id").on("change", function() {
+      
+      $(".dataset-type-info").hide();
+      
+      $("#dataset-type-info-"  + $("#dataset_dataset_type_id").val()).show();
+      
+  });
+</script>

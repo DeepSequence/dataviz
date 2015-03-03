@@ -19,34 +19,33 @@
   </div>
 </div>
 
-<div id= "create-new">
-<%= link_to 'Create a new visualization with existing dataset', new_graph_path %>
-</div>
-
+<!--loads the main graph first then adds an on click event in the short_list. this replaces the content of the main graph with the graphs show page for that graph you clicked on-->
 <div id = "graph-list">
 <script>
   $("#main-graph").load("/show_simple/1");
+
+
   $("#vert-bar").on("click", function () {
-    $("#graph-list").load("short_list?type=Vertical+bar");  
+    $("#graph-list").load("/short_list?type=Vertical+bar");  
   });
 
     $("#multi").on("click", function () {
-    $("#graph-list").load("short_list?type=Multiline");  
+    $("#graph-list").load("/short_list?type=Multiline");  
   });
     $("#pie-graph").on("click", function () {
-    $("#graph-list").load("short_list?type=Pie");  
+    $("#graph-list").load("/short_list?type=Pie");  
   });
 
     $("#stacked-graph").on("click", function () {
-    $("#graph-list").load("short_list?type=stacked+bar");  
+    $("#graph-list").load("/short_list?type=stacked+bar");  
   });
 
     $("#line-graph").on("click", function () {
-    $("#graph-list").load("short_list?type=line");  
+    $("#graph-list").load("/short_list?type=line");  
   });
 
     $("#dots").on("click", function () {
-    $("#graph-list").load("short_list?type=scatter+plot");  
+    $("#graph-list").load("/short_list?type=scatter+plot");  
   })
 </script>
 

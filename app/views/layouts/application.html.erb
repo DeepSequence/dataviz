@@ -26,6 +26,9 @@
     <div class="collapse navbar-collapse" id="main-nav">
         <ul class="nav navbar-nav">      
           <li><%= link_to "Browse Datasets", datasets_browse_url%></li>
+          <li><%= link_to "New Dataset", new_dataset_url%>
+          </li>
+          <li><%= link_to "New Graph", new_graph_url%></li>
           <li><%= link_to "About", about_url %></li>
           <li><a href="http://minmcknight.github.io">Blog</a></li>
         </ul>
@@ -40,6 +43,10 @@
          <li>
             <%= link_to "Sign Out", sign_out_path, method: :delete%>
          </li>
+         <% if is_admin? %>
+          <li><%= link_to "Admin", {controller: :main, action: :admin}%>
+          </li>
+         <%end%>
         <%else%>
         <li>
             <%=link_to "Sign in with Twitter", "/auth/twitter" %>
