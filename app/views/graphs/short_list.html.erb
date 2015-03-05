@@ -12,7 +12,7 @@
       <tr>
         <td id ="<%=graph.id%>"class="graph-link"><%= graph.name %></td>
         <td><%=graph.graph_type.name%></td>
-        <td><%=graph.user.name%></td>
+        <td><%=graph.user.name if graph.user%></td>
       </tr>
     <% end %>
   </tbody>

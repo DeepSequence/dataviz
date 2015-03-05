@@ -17,6 +17,8 @@
   <%= render partial: "multiline"%>
   <%elsif @graph.graph_type.name == "stacked bar"%>
   <%= render partial: "stackedBar"%>
+  <%elsif @graph.graph_type.name == "Scatter Plot"%>
+  <%= render partial: "scatter"%>
   <%end%>
 
 

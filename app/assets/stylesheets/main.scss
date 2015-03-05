@@ -85,13 +85,13 @@ div.graph-menu:hover {
 .axis line {
   fill: none;
   stroke: #000;
-  shape-rendering: crispEdges;
+  //shape-rendering: crispEdges;
 }
 
 .x.axis path {
   fill: none;
   stroke: #000;
-  shape-rendering: crispEdges;
+  //shape-rendering: crispEdges;
 }
 
 .graph-link{
@@ -133,6 +133,21 @@ div.graph-menu:hover {
   font: 10px sans-serif;
   text-anchor: middle;
 }
+
+g text.label {
+  font-size: 12px;
+}
 .arc path {
   stroke: #fff;
+}
+
+.dot {
+  stroke: #000;
+}
+
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
 }
