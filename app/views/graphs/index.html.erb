@@ -17,7 +17,7 @@
       <tr>
         <td><%= graph.name %></td>
         <td><%= graph.dataset.name %></td>
-        <td><%= graph.graph_type.name %></td>
+        <td><%= graph.graph_type.name if graph.graph_type %></td>
         <td><%= link_to 'Show', graph %></td>
         <td><%= link_to 'Edit', edit_graph_path(graph) %></td>
         <td><%= link_to 'Destroy', graph, method: :delete, data: { confirm: 'Are you sure?' } %></td>

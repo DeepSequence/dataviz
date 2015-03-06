@@ -61,7 +61,7 @@ class GraphsController < ApplicationController
   # PATCH/PUT /graphs/1.json
   def update
     respond_to do |format|
-      if (@graph.user == current_user) && @graph.update(graph_params)
+      if ((@graph.user == current_user) || is_admin?) && @graph.update(graph_params)
         format.html { redirect_to @graph, notice: 'Graph was successfully updated.' }
         format.json { render :show, status: :ok, location: @graph }
       else
@@ -74,7 +74,7 @@ class GraphsController < ApplicationController
   # DELETE /graphs/1
   # DELETE /graphs/1.json
   def destroy
-    if @graph.user == current_user
+    if (@graph.user == current_user) || is_admin?
       @graph.destroy
       respond_to do |format|     
         format.html { redirect_to graphs_url, notice: 'Graph was successfully deleted.' }

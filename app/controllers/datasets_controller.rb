@@ -49,7 +49,7 @@ class DatasetsController < ApplicationController
   # PATCH/PUT /datasets/1
   # PATCH/PUT /datasets/1.json
   def update
-    if @dataset.user != current_user
+    if (@dataset.user != current_user) && !is_admin?
       redirect_to root_url, notice: "Must own graph to edit"
     else
       respond_to do |format|
@@ -67,7 +67,7 @@ class DatasetsController < ApplicationController
   # DELETE /datasets/1
   # DELETE /datasets/1.json
   def destroy
-    if @dataset.user != current_user
+    if (@dataset.user != current_user) && !is_admin?
       redirect_to root_url, notice: "Must own graph to edit"
     else
       @dataset.destroy

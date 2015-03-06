@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user
+  helper_method :is_admin?
 
 
   def authorize_admin
-    unless current_user && (current_user.uid == "18310167")
+    unless is_admin?
       redirect_to root_url, notice: "Must be admin"
     end
   end
@@ -15,5 +16,8 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
-  helper_method :current_user
+  def is_admin?
+    current_user && (current_user.uid == "18310167")
+  end
+  #helper_method :current_user
 end
