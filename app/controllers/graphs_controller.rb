@@ -8,14 +8,14 @@ class GraphsController < ApplicationController
     @graphs = Graph.all
   end
 
-  def short_list
+  def graph_list
     if params[:type]
       graph_type = GraphType.find_by(name: params[:type])
       @graphs = Graph.where(graph_type_id: graph_type.id)
     else
        @graphs = Graph.all
     end
-    render :short_list, :layout => false
+    render :graph_list, :layout => false
   end
 
   # GET /graphs/1

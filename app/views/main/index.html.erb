@@ -4,49 +4,53 @@
 <h1>Existing Graphs</h1>
 <div class="container">
   <div class="row">
-      <div id="vert-bar" class="col-md-2 col-sm-4 col-xs-6 graph-menu"><%= image_tag "bar.png", class: "graph-menu"%></div>
+      <div id="vert-bar" class="col-md-2 col-sm-4 col-xs-6 graph-menu"><%= image_tag "bar.png", class: "graph-menu"%><br>bar</div>
 
-      <div id="multi" class="col-md-2 col-sm-4 col-xs-6 graph-menu"><%= image_tag "multi_line.png", class: "graph-menu"%></div>
+      <div id="multi" class="col-md-2 col-sm-4 col-xs-6 graph-menu"><%= image_tag "multi_line.png", class: "graph-menu"%><br>multi line</div>
 
-      <div id="pie-graph" class="col-md-2 col-sm-4 col-xs-6 graph-menu"><%= image_tag "pie.png", class: "graph-menu"%></div>
+      <div id="pie-graph" class="col-md-2 col-sm-4 col-xs-6 graph-menu"><%= image_tag "pie.png", class: "graph-menu"%><br>pie</div>
   <!--</div>-->
   <!--<div class="row">-->
-      <div id="stacked-graph" class="col-md-2 col-sm-4 col-xs-6 graph-menu"><%= image_tag "stacked_bar.png", class: "graph-menu"%></div>
+      <div id="stacked-graph" class="col-md-2 col-sm-4 col-xs-6 graph-menu"><%= image_tag "stacked_bar.png", class: "graph-menu"%><br>stacked bar</div>
 
-      <div id="line-graph" class="col-md-2 col-sm-4 col-xs-6 graph-menu"><%= image_tag "linenew.png", class: "graph-menu"%></div>
+      <div id="line-graph" class="col-md-2 col-sm-4 col-xs-6 graph-menu"><%= image_tag "linenew.png", class: "graph-menu"%><br>line</div>
 
-      <div id="dots" class="col-md-2 col-sm-4 col-xs-6 graph-menu"><%= image_tag "scatter_plot.png", class: "graph-menu"%></div>
+      <div id="dots" class="col-md-2 col-sm-4 col-xs-6 graph-menu"><%= image_tag "scatter_plot.png", class: "graph-menu"%><br>scatter plot</div>
   </div>
 </div>
 
-<!--loads the main graph first then adds an on click event in the short_list. this replaces the content of the main graph with the graphs show page for that graph you clicked on-->
+<!--loads the main graph first then adds an on click event in the graph_list. this replaces the content of the main graph with the graphs show page for that graph you clicked on-->
 <div id = "graph-list">
 <script>
-  $("#main-graph").load("/show_simple/1");
+  $("#main-graph").load("/about?layout=false");
 
-
+  //go down to the list of graphs when one of the graph types is clicked
+  var jumpDown = function () {
+    $(document).scrollTop( $("#vert-bar").offset().top); 
+  }
   $("#vert-bar").on("click", function () {
-    $("#graph-list").load("/short_list?type=Vertical+bar");  
+    $("#graph-list").load("/graph_list?type=Vertical+bar", jumpDown)
   });
 
     $("#multi").on("click", function () {
-    $("#graph-list").load("/short_list?type=Multiline");  
+    $("#graph-list").load("/graph_list?type=Multiline", jumpDown)
   });
+
     $("#pie-graph").on("click", function () {
-    $("#graph-list").load("/short_list?type=Pie");  
+    $("#graph-list").load("/graph_list?type=Pie", jumpDown)
   });
 
     $("#stacked-graph").on("click", function () {
-    $("#graph-list").load("/short_list?type=stacked+bar");  
+    $("#graph-list").load("/graph_list?type=stacked+bar", jumpDown)
   });
 
     $("#line-graph").on("click", function () {
-    $("#graph-list").load("/short_list?type=line");  
+    $("#graph-list").load("/graph_list?type=line", jumpDown)
   });
 
     $("#dots").on("click", function () {
-    $("#graph-list").load("/short_list?type=Scatter+Plot");  
-  })
+    $("#graph-list").load("/graph_list?type=Scatter+Plot", jumpDown)
+  });
 </script>
 
 

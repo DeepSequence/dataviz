@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'main/index'
   get 'main/admin'
   get 'about' => 'main#about'
+  get 'about/:layout'=> 'main#about'
   get 'datasets_browse' => 'datasets#browse'
 
   get 'sign_in' =>'sessions#new'
@@ -24,8 +25,8 @@ Rails.application.routes.draw do
   root 'main#index'
 
 
- get 'short_list' => 'graphs#short_list'
- get 'short_list/:type' => 'graphs#short_list'
+ get 'graph_list' => 'graphs#graph_list'
+ get 'graph_list/:type' => 'graphs#graph_list'
  get 'show_simple/:id' => 'graphs#show_simple'
 
 
