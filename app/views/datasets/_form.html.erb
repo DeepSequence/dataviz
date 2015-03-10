@@ -40,7 +40,7 @@
 </div>
 <div class="col-md-2"></div>
 <div class="col-md-5">
-<div class="dataset-instructions">
+<div id="dataset-instructions">
 <h1> How to create your own dataset from websites with open data</h1>
 <ul class= "list-unstyled step-by-step">
 <li> <strong>Step 1: </strong> Download a spreadsheet and save it as a .tsv file. To start, we suggest searching for data on Data.gov. </li>
@@ -63,6 +63,7 @@
 <script>
   $(".dataset-type-info").hide();
   $("#dataset_dataset_type_id").on("change", function() {
+      $("#dataset-instructions").hide();
       
       $(".dataset-type-info").hide();
       
