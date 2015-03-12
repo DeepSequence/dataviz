@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :filtered_graphs
+
    get '/auth/:provider/callback', to: 'sessions#create'
 
   resources :dataset_types

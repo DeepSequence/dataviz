@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Graph type:</strong>
+  <%= @filtered_graph.graph_type.name %>
+</p>
+
+<p>
+  <strong>Dataset type:</strong>
+  <%= @filtered_graph.dataset_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_filtered_graph_path(@filtered_graph) %> |
+<%= link_to 'Back', filtered_graphs_path %>

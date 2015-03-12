@@ -19,7 +19,7 @@
   </div>
   <div class="field form-group">
     <%= f.label :dataset_id %><br>
-    <%= f.collection_select :dataset_id, Dataset.all, :id, :name, {include_blank: "Select Dataset..."},{ class: "form-control"} %>
+    <%= f.collection_select :dataset_id, Dataset.all, :id, :supported_graph_types, {include_blank: "Select Dataset..."},{ class: "form-control"} %>
   </div>
   <div class="field form-group">
     <%= f.label :graph_type_id %><br>
@@ -38,3 +38,5 @@
     <%= f.submit class: "btn btn-default" %>
   </div>
 <% end %>
+
+

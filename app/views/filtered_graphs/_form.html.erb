@@ -1,0 +1,25 @@
+<%= form_for(@filtered_graph) do |f| %>
+  <% if @filtered_graph.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@filtered_graph.errors.count, "error") %> prohibited this filtered_graph from being saved:</h2>
+
+      <ul>
+      <% @filtered_graph.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="field form-group">
+    <%= f.label :dataset_type_id %><br>
+    <%= f.collection_select :dataset_type_id, DatasetType.all, :id, :name, {include_blank: "Select Dataset Type..."},{ class: "form-control"} %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :graph_type_id %><br>
+    <%= f.collection_select :graph_type_id, GraphType.all, :id, :name, {include_blank: "Select Graph Type..."}, {class: "form-control"} %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

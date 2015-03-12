@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302030609) do
+ActiveRecord::Schema.define(version: 20150310030039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 20150302030609) do
     t.string   "description"
     t.integer  "user_id"
   end
+
+  create_table "filtered_graphs", force: :cascade do |t|
+    t.integer  "graph_type_id"
+    t.integer  "dataset_type_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "filtered_graphs", ["dataset_type_id"], name: "index_filtered_graphs_on_dataset_type_id", using: :btree
+  add_index "filtered_graphs", ["graph_type_id"], name: "index_filtered_graphs_on_graph_type_id", using: :btree
 
   create_table "graph_types", force: :cascade do |t|
     t.string   "name"
@@ -71,6 +81,8 @@ ActiveRecord::Schema.define(version: 20150302030609) do
     t.string   "secret"
   end
 
+  add_foreign_key "filtered_graphs", "dataset_types"
+  add_foreign_key "filtered_graphs", "graph_types"
   add_foreign_key "graphs", "datasets"
   add_foreign_key "graphs", "graph_types"
 end

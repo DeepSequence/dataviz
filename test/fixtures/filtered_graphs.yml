@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  graph_type_id: 
+  dataset_type_id: 
+
+two:
+  graph_type_id: 
+  dataset_type_id: 

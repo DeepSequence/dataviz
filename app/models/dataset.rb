@@ -4,4 +4,10 @@ class Dataset < ActiveRecord::Base
   belongs_to :dataset_type
   has_attached_file :data_file
   validates_attachment_content_type :data_file, :content_type => "text/tab-separated-values"
+
+  #get an enhanced name that shows the types of graphs that dataset supports
+  def supported_graph_types
+    #grab the linked graph types through the filtered_graphs association of the dataset_type
+    name + " (" + dataset_type.graph_types.collect{|x| x.name}.join(", ") +")"
+  end
 end
